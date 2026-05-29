@@ -1,0 +1,2 @@
+system_profiler SPDisplaysDataType | grep -E "VRAM|Metal|Kext"
+ioreg -l -w 0 | grep "AAPL,ig-platform-id"
