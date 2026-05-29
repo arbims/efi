@@ -7,3 +7,27 @@ ioreg -l -w 0 | grep -E "device-id|model" | head -5
 kextstat | grep -Ei "intel.*graph|whatevergreen|lilu"
 
 sudo nvram boot-args="alcid=3 igfxonln=1"
+
+
+
+resultat
+
+
+boot-args	-v keepsyms=1 debug=0x100 alcid=3
+arbi@iMac-de-arbi ~ % ioreg -l -w 0 | grep -E "device-id|model" | head -5  
+
+    |   "model" = <"iMac20,1">
+    |   "bridge-model" = <"J185AP">
+    | |   |     "device-id" = <1f190000>
+    | |   | |   "device-id" = <01190000>
+    | |   | |   "model" = <"Intel HD Graphics 530">
+arbi@iMac-de-arbi ~ % kextstat | grep -Ei "intel.*graph|whatevergreen|lilu"
+
+Executing: /usr/bin/kmutil showloaded
+No variant specified, falling back to release
+   52    6 0                  0x2f000    0x2f000    as.vit9696.Lilu (1.7.1) AE004BE7-2FA9-36BF-AC0A-D40FCCA10FCE <9 7 6 3 2 1>
+   53    0 0                  0x83000    0x83000    as.vit9696.WhateverGreen (1.7.0) C960BCE0-7D95-3D9B-9143-2A65C6F714F2 <52 16 9 7 6 3 2 1>
+  108    0 0xffffff7f98ccb000 0xbf000    0xbf000    com.apple.driver.AppleIntelSKLGraphicsFramebuffer (18.0.8) 3A9F0005-6C71-324E-8ED6-C6C1FD30E2DD <107 106 105 45 16 15 9 8 7 6 3 1>
+  146    0 0xffffff7f98bcc000 0xbd000    0xbd000    com.apple.driver.AppleIntelSKLGraphics (18.0.8) 45452AF2-1FFA-3BA6-92F8-93B987314894 <107 105 92 16 9 8 7 6 3 1>
+arbi@iMac-de-arbi ~ % 
+
