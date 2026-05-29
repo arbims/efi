@@ -1,2 +1,9 @@
 system_profiler SPDisplaysDataType | grep -E "VRAM|Metal|Kext"
 ioreg -l -w 0 | grep "AAPL,ig-platform-id"
+
+
+nvram boot-args
+ioreg -l -w 0 | grep -E "device-id|model" | head -5
+kextstat | grep -Ei "intel.*graph|whatevergreen|lilu"
+
+sudo nvram boot-args="alcid=3 igfxonln=1"
